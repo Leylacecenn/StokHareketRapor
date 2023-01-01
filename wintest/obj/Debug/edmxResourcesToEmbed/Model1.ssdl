@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="STI">
+    <Key>
+      <PropertyRef Name="IslemTur" />
+      <PropertyRef Name="EvrakNo" />
+      <PropertyRef Name="Tarih" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IslemTur" Type="smallint" Nullable="false" />
+    <Property Name="EvrakNo" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Tarih" Type="int" Nullable="false" />
+    <Property Name="MalKodu" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Miktar" Type="numeric" Precision="25" Scale="6" Nullable="false" />
+    <Property Name="Fiyat" Type="numeric" Precision="25" Scale="6" Nullable="false" />
+    <Property Name="Tutar" Type="numeric" Precision="25" Scale="6" Nullable="false" />
+    <Property Name="Birim" Type="varchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STK">
+    <Key>
+      <PropertyRef Name="MalKodu" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MalKodu" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MalAdi" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="arama" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="arama" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="listeleme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="arama" Type="nvarchar" Mode="In" />
+    <Parameter Name="baslangictarihi" Type="int" Mode="In" />
+    <Parameter Name="bitistarihi" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="TestModelStoreContainer">
+    <EntitySet Name="STI" EntityType="Self.STI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STK" EntityType="Self.STK" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

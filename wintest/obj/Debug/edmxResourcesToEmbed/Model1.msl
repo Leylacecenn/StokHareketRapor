@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities">
+    <EntitySetMapping Name="STIs">
+      <EntityTypeMapping TypeName="TestModel.STI">
+        <MappingFragment StoreEntitySet="STI">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IslemTur" ColumnName="IslemTur" />
+          <ScalarProperty Name="EvrakNo" ColumnName="EvrakNo" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="MalKodu" ColumnName="MalKodu" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STKs">
+      <EntityTypeMapping TypeName="TestModel.STK">
+        <MappingFragment StoreEntitySet="STK">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MalKodu" ColumnName="MalKodu" />
+          <ScalarProperty Name="MalAdi" ColumnName="MalAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="arama" FunctionName="TestModel.Store.arama" />
+    <FunctionImportMapping FunctionImportName="listeleme" FunctionName="TestModel.Store.listeleme">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TestModel.listeleme_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MalKodu" ColumnName="MalKodu" />
+          <ScalarProperty Name="IslemTur" ColumnName="IslemTur" />
+          <ScalarProperty Name="EvrakNo" ColumnName="EvrakNo" />
+          <ScalarProperty Name="Tarih1" ColumnName="Tarih1" />
+          <ScalarProperty Name="IslemTuru" ColumnName="IslemTuru" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Giris" ColumnName="Giris" />
+          <ScalarProperty Name="Cikis" ColumnName="Cikis" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
